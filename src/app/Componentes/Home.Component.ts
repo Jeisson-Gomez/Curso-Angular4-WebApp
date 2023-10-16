@@ -6,11 +6,13 @@ import { Component } from "@angular/core";
 })
 
 export class HomeComponent{
-  public titulo: string;
+  public Titulo: string;
 
   constructor(){
-    this.titulo = 'Pagina Principal'
+    this.Titulo = 'Webapp de producto con angular 4';
   }
 
-  ngOnInt(){}
+  ngOnInt(){
+    console.log('Se a cargado el componente de Home.component.ts');
+  }
 }
