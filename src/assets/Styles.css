@@ -1,15 +1,13 @@
 #content{
   margin-top: 30px;
   border-radius: 2px;
-  background: white;
-  box-shadow: 0px, 2px, 5px #ccc;
+  box-shadow: 0px, 2px, 5px;
   padding: 0px;
   overflow: hidden;
 }
 
 #header{
   background: #E03137;
-  color: white;
   margin: 0px;
   height: 90px;
   line-height: 90px;
@@ -56,6 +54,11 @@
   background: #E03137;
 }
 
+.activado{
+  text-decoration: none !important;
+  border-bottom: 4px solid black !important;
+}
+
 #nain .jumbotron{
   padding: 50px;
   margin-top: 30px;
@@ -65,7 +68,7 @@
 #footer{
   margin-top: 30px;
   padding-top: 10px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid;
   color: gray;
 }
 
@@ -74,12 +77,5 @@ h1, h2,  h3, h4{
   width: 640px;
   padding: 50px;
   font-family: 'avennir', sans-serif;
-}
-
-.center{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: blue;
 }

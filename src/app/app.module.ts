@@ -8,9 +8,10 @@ import { routing, appRoutingProviders } from './app.routing';
 
 //Componentes
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Componentes/Home.Component';
-import { ErrorComponent } from './Componentes/Error.component';
-import { ProductosListComponent } from './Componentes/Productos-list.component';
+import { HomeComponent } from './Components/Home.Component';
+import { ErrorComponent } from './Components/Error.component';
+import { ProductosListComponent } from './Components/Productos-List.component';
+
 @NgModule({
   declarations: [
     AppComponent,
