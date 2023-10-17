@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Gobal } from './Services/Global';
+import { GLOBAL } from './Services/Global';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,6 @@ export class AppComponent {
   public header_color: string;
 
   constructor(){
-    this.header_color = Gobal.header_color;
+    this.header_color = GLOBAL.header_color;
   }
 }

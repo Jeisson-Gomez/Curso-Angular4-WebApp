@@ -1,6 +1,7 @@
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 //Rutas
@@ -23,6 +24,7 @@ import { ProductosListComponent } from './Components/Productos-List.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     routing
   ],
   providers: [
