@@ -11,6 +11,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/Home.Component';
 import { ErrorComponent } from './Components/Error.component';
+import { ProductoAddComponent } from "./Components/Producto-add.component";
 import { ProductosListComponent } from './Components/Productos-List.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProductosListComponent } from './Components/Productos-List.component';
     AppComponent,
     HomeComponent,
     ErrorComponent,
+    ProductoAddComponent,
     ProductosListComponent
   ],
   imports: [
