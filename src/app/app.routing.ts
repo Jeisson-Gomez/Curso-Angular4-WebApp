@@ -8,8 +8,7 @@ import { ErrorComponent } from "./Componentes/Error.component";
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
-  { path: 'Error', component: ErrorComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: ErrorComponent }
 ];
 
 export const appRoutingProviders: any[] = [];
