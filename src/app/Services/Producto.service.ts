@@ -15,7 +15,7 @@ export class ProductoService{
     this.url = GLOBAL.url;
   }
 
-  getProductos(){
-    return "Texto desde el Servicio";
+  getProductos(): Observable<any>{
+    return this._http.get(this.url + 'productos')
   }
 }
