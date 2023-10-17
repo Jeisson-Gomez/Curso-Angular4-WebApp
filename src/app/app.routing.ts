@@ -3,10 +3,12 @@ import { Routes, RouterModule, Router } from "@angular/router";
 
 //Componentes
 import { HomeComponent } from "./Componentes/Home.Component";
+import { ErrorComponent } from "./Componentes/Error.component";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
+  { path: 'Error', component: ErrorComponent },
   { path: '**', component: HomeComponent }
 ];
 
