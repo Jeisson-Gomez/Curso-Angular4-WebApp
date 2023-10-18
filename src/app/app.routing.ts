@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
   { path: 'Productos', component: ProductosListComponent },
-  { path: 'Crear-Productos', component: ProductoAddComponent},
+  { path: 'Crear-Producto', component: ProductoAddComponent },
   { path: '**', component: ErrorComponent }
 ];
 

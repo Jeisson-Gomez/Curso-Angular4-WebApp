@@ -79,3 +79,7 @@ h1, h2,  h3, h4{
   font-family: 'avennir', sans-serif;
   color: blue;
 }
+
+#form-producto label{
+  margin-top: 10px;
+}

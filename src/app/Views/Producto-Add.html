@@ -3,4 +3,42 @@
 </h3>
 <hr/>
 
+<form #formProducto="ngForm" class="col-lg-6" id="form-control">
+  <label for="">
+    <strong>
+      Nombre:
+    </strong>
+  </label>
+  <input type="text" class="form-control" />
 
+  <br>
+
+  <label for="">
+    <strong>
+      Descripcion
+    </strong>
+  </label>
+  <textarea class="form-control"></textarea>
+
+  <br>
+
+  <label for="">
+    <strong>
+      Precio
+    </strong>
+  </label>
+  <input type="text" class="form-control" />
+
+  <br>
+
+  <label for="">
+    <strong>
+      Imagen
+    </strong>
+  </label>
+  <input type="file" class="form-control" />
+
+  <br />
+  <input type="submit" value="{{ titulo }}" class="btn btn-success">
+</form>
+<hr />
