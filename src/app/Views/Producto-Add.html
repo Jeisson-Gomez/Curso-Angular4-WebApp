@@ -4,18 +4,27 @@
 <hr/>
 
 <form #formProducto="ngForm" (onSubmit)="onSubmit()" class="col-lg-6" id="form-control">
-  <label><strong>Nombre:</strong></label>
-  <input type="text" name="Nombre" #nombre="ngModel" [(ngModel)]="producto.nombre" class="form-control" />
+  <label>
+    <strong>Nombre: </strong>
+    <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio!!</span>
+  </label>
+  <input type="text" name="Nombre" #nombre="ngModel" [(ngModel)]="producto.nombre" class="form-control" required />
 
   <br>
 
-  <label><strong>Descripcion:</strong></label>
-  <textarea name="Descripcion" #descripcion="ngModel" [(ngModel)]="producto.descripcion" class="form-control"></textarea>
+  <label>
+    <strong>Descripcion: </strong>
+    <span *ngIf="!descripcion.valid && descripcion.touched">La descripcion es obligatorio!!</span>
+  </label>
+  <textarea name="Descripcion" #descripcion="ngModel" [(ngModel)]="producto.descripcion" class="form-control" required ></textarea>
 
   <br>
 
-  <label><strong>Precio:</strong></label>
-  <input type="text" name="precio" #precio="ngModel" [(ngModel)]="producto.precio" class="form-control" />
+  <label>
+    <strong>Precio: </strong>
+    <span *ngIf="!precio.valid && precio.touched">El precio es Obligatorio!!</span>
+  </label>
+  <input type="text" name="precio" #precio="ngModel" [(ngModel)]="producto.precio" class="form-control" required />
 
   <br>
 
