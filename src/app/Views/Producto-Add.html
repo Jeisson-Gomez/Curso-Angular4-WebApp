@@ -22,9 +22,9 @@
 
   <label>
     <strong>Precio: </strong>
-    <span *ngIf="!precio.valid && precio.touched">El precio es Obligatorio!!</span>
+    <span *ngIf="!precio.valid && precio.touched">El precio no es Correcto!!</span>
   </label>
-  <input type="text" name="precio" #precio="ngModel" [(ngModel)]="producto.precio" class="form-control" required />
+  <input type="text" name="precio" #precio="ngModel" [(ngModel)]="producto.precio" class="form-control" required pattern="[0-9]+"/>
 
   <br>
 
@@ -32,6 +32,6 @@
   <input type="file" class="form-control" />
 
   <br />
-  <input type="submit" value="{{ titulo }}" class="btn btn-success">
+  <input type="submit" value="{{ titulo }}" [disabled]="!formProducto.form.valid" class="btn btn-success">
 </form>
 <hr />
