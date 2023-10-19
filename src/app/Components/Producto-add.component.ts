@@ -28,5 +28,18 @@ export class ProductoAddComponent{
 
   onSubmit(){
     console.log(this.producto);
+
+    this._ProductoService.addProducto(this.producto).subscribe(
+      response => {
+        if(response.code == 200){
+          this._router.navigate(['/Productos']);
+        }else{
+          console.log(response);
+        }
+      },
+      error => {
+        console.log(<any>error)
+      }
+    );
   }
 }
