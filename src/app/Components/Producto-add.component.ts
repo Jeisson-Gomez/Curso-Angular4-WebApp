@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 import { ProductoService } from "../Services/Producto.service";
 import { Producto } from "../Models/Producto";
 
+import { GLOBAL } from "../Services/Global";
+
 @Component({
   selector: 'Producto-add',
   templateUrl: '../Views/Producto-Add.html',
@@ -29,6 +31,13 @@ export class ProductoAddComponent{
   onSubmit(){
     console.log(this.producto);
 
+    this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
+      //console.log(JSON.stringify(result));
+    },(error)=>{
+      console.log(<any> error);
+    }
+    );
+
     this._ProductoService.addProducto(this.producto).subscribe(
       response => {
         if(response.code == 200){
@@ -41,5 +50,13 @@ export class ProductoAddComponent{
         console.log(<any>error)
       }
     );
+  }
+
+  public filesToUpload: any;
+  public resultUpload: any;
+
+  fileChangeEvent(fileInput: any){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
   }
 }
