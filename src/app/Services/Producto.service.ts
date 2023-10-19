@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { Producto } from "../Models/Producto";
 import { GLOBAL } from "./Global";
 
+
 @Injectable()
 
 export class ProductoService{
@@ -17,5 +18,13 @@ export class ProductoService{
 
   getProductos(): Observable<any>{
     return this._http.get(this.url + 'productos')
+  }
+
+  addProducto(producto: Producto): Observable<any>{
+    let json = JSON.stringify(producto);
+    let params = 'json='+json;
+    let HttpHeaders = new Headers({'content-type':'application/x-www-form-urlencoded'});
+
+    return this._http.post(this.url+'productos',params);
   }
 }

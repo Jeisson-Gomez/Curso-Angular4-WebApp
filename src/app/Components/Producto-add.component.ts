@@ -14,7 +14,10 @@ export class ProductoAddComponent{
   public titulo: string;
   public producto:any = Producto;
 
-  constructor(){
+  constructor(
+    private _ProductoService: ProductoService,
+    private _router: Router
+  ){
     this.titulo = "Crear un nuevo Producto"
     this.producto = new Producto(0, '', '', 0, '');
   }
