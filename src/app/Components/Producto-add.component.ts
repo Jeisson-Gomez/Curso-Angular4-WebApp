@@ -31,24 +31,26 @@ export class ProductoAddComponent{
   onSubmit(){
     console.log(this.producto);
 
-    this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
-      //console.log(JSON.stringify(result));
+    this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
+      console.log(result);
+      this.producto.imagen = result.filename
+
+      this._ProductoService.addProducto(this.producto).subscribe(
+        response => {
+          if(response.code == 200){
+            this._router.navigate(['/Productos']);
+          }else{
+            console.log(response);
+          }
+        },
+        error => {
+          console.log(<any>error)
+        }
+      );
+
     },(error)=>{
       console.log(<any> error);
     }
-    );
-
-    this._ProductoService.addProducto(this.producto).subscribe(
-      response => {
-        if(response.code == 200){
-          this._router.navigate(['/Productos']);
-        }else{
-          console.log(response);
-        }
-      },
-      error => {
-        console.log(<any>error)
-      }
     );
   }
 
