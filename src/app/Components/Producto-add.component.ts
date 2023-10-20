@@ -20,7 +20,7 @@ export class ProductoAddComponent{
   public resultUpload: any;
 
   constructor(
-    private _ProductoService: ProductoService,
+    private _productoService: ProductoService,
     private _router: Router
   ){
     this.titulo = "Crear un nuevo Producto"
@@ -35,7 +35,7 @@ export class ProductoAddComponent{
     console.log(this.producto);
 
     if(this.filesToUpload.length >= 1){
-      this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
+      this._productoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
         console.log(result);
 
         this.producto.imagen = this.resultUpload.filename;
@@ -50,7 +50,7 @@ export class ProductoAddComponent{
   }
 
   saveProducto(){
-    this._ProductoService.addProducto(this.producto).subscribe(
+    this._productoService.addProducto(this.producto).subscribe(
       response => {
         if(response.code == 200){
           this._router.navigate(['/Productos']);

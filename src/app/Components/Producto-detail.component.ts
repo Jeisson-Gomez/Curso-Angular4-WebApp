@@ -22,4 +22,10 @@ export class ProductoDetailComponent{
   ngOnInit(){
     console.log('Producto-Detail.component.ts cargando...')
   }
+
+  getProducto(){
+    this._route.params.forEach((params: Params) => {
+      let id = params['id'];
+    });
+  }
 }

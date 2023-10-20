@@ -6,7 +6,7 @@ import { Producto } from "../Models/Producto";
 @Component({
   selector: 'Productos-List',
   templateUrl: '../Views/Productos-List.html',
-  providers: [ProductoService]
+  providers: [ ProductoService ]
 })
 
 export class ProductosListComponent{

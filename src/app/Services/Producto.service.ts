@@ -21,6 +21,10 @@ export class ProductoService{
     return this._http.get(this.url + 'productos')
   }
 
+  getProducto(id: any){
+    return this._http.get(this.url+'producto/'+id);
+  }
+
   addProducto(producto: Producto): Observable<any>{
     let json = JSON.stringify(producto);
     let params = 'json='+json;
