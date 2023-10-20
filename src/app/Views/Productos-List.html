@@ -8,15 +8,27 @@
 </div>
 
 <div *ngIf="productos">
-  <ul>
-    <li *ngFor="let Producto of productos">
-      <strong>
-        {{ Producto.nombre }}
-      </strong>
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let Producto of productos">
+      <div class="thumbnail">
+        <div *ngIf="Producto.imagen" class="imagen_container">
+          <img src="http://localhost/Curso-Angular4-Backend/index.php/uploads/{{ Producto.imagen }}" class="producto_imagen"/>
+        </div>
+      </div>
 
-      <p>
-        {{ Producto.precio }}
-      </p>
-    </li>
-  </ul>
+      <div *ngIf="!Producto.imagen">
+        <div class="imagen_relleno"></div>
+      </div>
+
+        <div class="caption">
+          <h3>{{ Producto.nombre }}</h3>
+          <p>{{ Producto.precio }}</p>
+          <p>
+            <a href="#" class="btn btn-md btn-primary">ver</a>
+            <a href="#" class="btn btn-md btn-success">Editar</a>
+            <a href="#" class="btn btn-md btn-danger">Eliminar</a>
+          </p>
+        </div>
+    </div>
+  </div>
 </div>

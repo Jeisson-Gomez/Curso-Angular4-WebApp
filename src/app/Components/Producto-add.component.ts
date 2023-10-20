@@ -16,6 +16,9 @@ export class ProductoAddComponent{
   public titulo: string;
   public producto:any = Producto;
 
+  public filesToUpload: any;
+  public resultUpload: any;
+
   constructor(
     private _ProductoService: ProductoService,
     private _router: Router
@@ -31,31 +34,35 @@ export class ProductoAddComponent{
   onSubmit(){
     console.log(this.producto);
 
-    this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
-      console.log(result);
-      this.producto.imagen = result.filename
+    if(this.filesToUpload.length >= 1){
+      this._ProductoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
+        console.log(result);
 
-      this._ProductoService.addProducto(this.producto).subscribe(
-        response => {
-          if(response.code == 200){
-            this._router.navigate(['/Productos']);
-          }else{
-            console.log(response);
-          }
-        },
-        error => {
-          console.log(<any>error)
-        }
-      );
+        this.producto.imagen = this.resultUpload.filename;
+        this.saveProducto();
 
-    },(error)=>{
-      console.log(<any> error);
+      },(error)=>{
+        console.log(<any> error);
+      });
+    }else{
+      this.saveProducto();
     }
-    );
   }
 
-  public filesToUpload: any;
-  public resultUpload: any;
+  saveProducto(){
+    this._ProductoService.addProducto(this.producto).subscribe(
+      response => {
+        if(response.code == 200){
+          this._router.navigate(['/Productos']);
+        }else{
+          console.log(response);
+        }
+      },
+      error => {
+        console.log(<any>error)
+      }
+    );
+  }
 
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>>fileInput.target.files;
