@@ -22,7 +22,9 @@ export class ProductoEditComponent{
     private _router: Router
   ){
     this.titulo = 'Editar Producto';
+    this.producto = new Producto (1, '', '', 1, '');
   }
+
   ngOnInit(){
     console.log();
   }
