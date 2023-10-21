@@ -38,10 +38,11 @@ export class ProductoEditComponent{
   onSubmit(){
     console.log(this.producto);
 
-    if(this.filesToUpload.length >= 1){
+    if(this.filesToUpload && this.filesToUpload.length >= 1){
       this._productoService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result: any) =>{
         console.log(result);
 
+        this.resultUpload = result;
         this.producto.imagen = this.resultUpload.filename;
         //this.updateProducto();
 
@@ -60,7 +61,7 @@ export class ProductoEditComponent{
       this._productoService.editProducto(id, this.producto).subscribe(
       response => {
         if(response.code == 200){
-          this._router.navigate('/Productos', id);
+          this._router.navigate(['/Productos', id]);
         }else{
           console.log(response);
         }
