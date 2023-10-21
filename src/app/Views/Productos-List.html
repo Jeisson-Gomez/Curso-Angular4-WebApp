@@ -25,7 +25,7 @@
           <p>{{ Producto.precio }}</p>
           <p>
             <a [routerLink]="['/Producto', Producto.id]" class="btn btn-md btn-primary">Ver</a>
-            <a [routerLink]="['/Editar']" class="btn btn-md btn-success">Editar</a>
+            <a [routerLink]="['/Editar-producto', Producto.id]" class="btn btn-md btn-success">Editar</a>
             <a [routerLink]="['/Eliminar']" class="btn btn-md btn-danger">Eliminar</a>
           </p>
         </div>
