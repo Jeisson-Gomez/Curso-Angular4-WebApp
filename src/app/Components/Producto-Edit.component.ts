@@ -13,7 +13,7 @@ import { GLOBAL } from "../Services/Global";
 
 export class ProductoEditComponent{
   public titulo: string;
-  public producto!: Producto;
+  public producto: Producto;
 
   public filesToUpload: any;
   public resultUpload: any;
@@ -43,21 +43,24 @@ export class ProductoEditComponent{
         console.log(result);
 
         this.producto.imagen = this.resultUpload.filename;
-        this.saveProducto();
+        //this.updateProducto();
 
       },(error)=>{
         console.log(<any> error);
       });
     }else{
-      this.saveProducto();
+      //this.updateProducto();
     }
   }
 
-  saveProducto(){
-    this._productoService.addProducto(this.producto).subscribe(
+  /*updateProducto(){
+    this._route.params.forEach((params: Params) => {
+      let id = +params['id'];
+
+      this._productoService.editProducto(id, this.producto).subscribe(
       response => {
         if(response.code == 200){
-          this._router.navigate(['/Productos']);
+          this._router.navigate('/Productos', id);
         }else{
           console.log(response);
         }
@@ -66,6 +69,12 @@ export class ProductoEditComponent{
         console.log(<any>error)
       }
     );
+    }
+  }*/
+
+  fileChangeEvent(fileInput:any){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
   }
 
   getProducto(){
