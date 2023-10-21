@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { ProductoService } from "../Services/Producto.service";
 import { Producto } from '../Models/Producto';
+import { ThisReceiver } from "@angular/compiler";
 
 @Component({
   selector: 'Producto-Edit',
@@ -27,5 +28,25 @@ export class ProductoEditComponent{
 
   ngOnInit(){
     console.log();
+  }
+
+  getProducto(){
+    this._route.params.forEach((params: Params) => {
+      let id = +params['id'];
+
+      this._productoService.getProducto(id).subscribe(
+        Response =>{
+          /*if(Response.code == 200){
+            this.producto = Response.data;
+          }else{
+            this._router.navigate(['/productos'])
+          }*/
+        },
+
+        error => {
+          console.error(<any>error);
+        }
+      );
+    });
   }
 }
