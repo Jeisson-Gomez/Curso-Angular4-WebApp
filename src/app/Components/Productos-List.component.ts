@@ -10,6 +10,7 @@ import { Producto } from "../Models/Producto";
 })
 
 export class ProductosListComponent{
+[x: string]: any;
   public Titulo: string;
   public productos: any = Producto;
   public confirmado: any;
