@@ -24,15 +24,14 @@
           <h3>{{ Producto.nombre }}</h3>
           <p>{{ Producto.precio }}</p>
 
-          <div class="botones" *ngIf="confirmado == null">
+          <div class="botones" *ngIf="confirmado != Producto.id">
             <a [routerLink]="['/Producto', Producto.id]" class="btn btn-md btn-primary">Ver</a>
             <a [routerLink]="['/Editar-producto', Producto.id]" class="btn btn-md btn-success">Editar</a>
             <a (click)="borrarConfrim(Producto.id)" class="btn btn-md btn-danger">Eliminar</a>
           </div>
 
-          <div class="seguro" *ngIf="confirmado == Producto.id">
-            <p>¿Estas seguro que quieres borrar este producto?</p>
-            <!--<a (click)="onDeleteProducto(id)" class="btn btn-md btn-danger">Borrar</a>-->
+          <div class="seguro" *ngIf="confirmado != Producto.id">
+            <a (click)="onDeleteProducto(Producto.id)" class="btn btn-md btn-danger">Quiero Eliminarlo</a>
             <a (click)="cancelarconfirm()" class="btn btn-md btn-warning">Cancelar</a>
         </div>
     </div>

@@ -19,7 +19,8 @@ export class ProductosListComponent{
     private _router:Router,
     private _ProductoService: ProductoService
   ){
-    this.Titulo = "Listado de productos"
+    this.Titulo = "Listado de productos";
+    this.confirmado = null;
   }
 
   onInit(){
