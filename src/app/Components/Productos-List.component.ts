@@ -12,6 +12,7 @@ import { Producto } from "../Models/Producto";
 export class ProductosListComponent{
   public Titulo: string;
   public productos: any = Producto;
+  public confirmado: any;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,6 +25,10 @@ export class ProductosListComponent{
   onInit(){
     console.log('Productos-List.component.ts cargado')
 
+    this.getProductos();
+  }
+
+  getProductos(){
     this._ProductoService.getProductos().subscribe(
       result =>{
         if(result.code != 200){
@@ -35,6 +40,29 @@ export class ProductosListComponent{
       error=>{
         console.log(<any>error);
       }
+    );
+  }
+
+  borrarConfrim(id: any){
+    this.confirmado = id;
+  }
+
+  cancelarconfirm(){
+    this.confirmado = null;
+  }
+
+  onDeleteProducto(id: any){
+    this._ProductoService.deleteProducto(id).subscribe(
+      Response => {
+        //if(Response.code == 200){
+          //this.getProductos();
+        //}else{
+          alert("Error al eliminar");
+        }
+      //},
+      //error => {
+        //console.log(<any>error);
+      //}
     );
   }
 }
